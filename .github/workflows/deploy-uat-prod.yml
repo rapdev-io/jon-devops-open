@@ -29,7 +29,7 @@ jobs:
           tool-id: ${{ secrets.SN_TOOL_ID }}
           job-name: ${{ github.job }}
           context-github: ${{ toJSON(github) }}
-          change-request: '{"attributes":"software_model":{"name":"1.0"}}'
+          change-request: '{"attributes":{"software_model":{"name":"1.0"}}}'
           deployment-gate: '{"environment":"UAT","jobName":"uat-deploy"}'
 
   uat-deploy:
@@ -45,7 +45,7 @@ jobs:
           tool-id: ${{ secrets.SN_TOOL_ID }}
           job-name: ${{ github.job }}
           context-github: ${{ toJSON(github) }}
-          change-request: '{"attributes":"software_model":{"name":"1.0"}}'
+          change-request: '{"attributes":{"software_model":{"name":"1.0"}}}'
           deployment-gate: '{"environment":"Production","jobName":"prod-deploy"}'
 
   prod-deploy:
