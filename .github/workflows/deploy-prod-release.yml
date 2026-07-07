@@ -37,7 +37,7 @@ jobs:
           tool-id: ${{ secrets.SN_TOOL_ID }}
           job-name: ${{ github.job }}
           context-github: ${{ toJSON(github) }}
-          change-request: '{"attributes":{"software_model":"${{inputs.release_version}}","start_date":"${{inputs.start_date}}","end_date":"${{inputs.end_date}}"}}'
+          change-request: '{"attributes":{"software_model":{"name":"${{inputs.release_version}}"},"start_date":"${{inputs.start_date}}","end_date":"${{inputs.end_date}}"}}'
           deployment-gate: '{"environment":"Production","jobName":"prod-deploy"}'
       - name: ServiceNow DevOps Change Automation
         if: inputs.start_date == '' || inputs.end_date == ''
@@ -48,7 +48,7 @@ jobs:
           tool-id: ${{ secrets.SN_TOOL_ID }}
           job-name: ${{ github.job }}
           context-github: ${{ toJSON(github) }}
-          change-request: '{"attributes":{"software_model":"${{inputs.release_version}}"}}'
+          change-request: '{"attributes":{"software_model":{"name":"${{inputs.release_version}}"}}}'
           deployment-gate: '{"environment":"Production","jobName":"prod-deploy"}'
 
   prod-deploy:
