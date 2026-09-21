@@ -87,6 +87,7 @@ jobs:
           
   package-registration:
     runs-on: ubuntu-latest
+    needs: test
     steps:
       - name: SN Register Package
         uses: ServiceNow/servicenow-devops-register-package@v7.0.0
