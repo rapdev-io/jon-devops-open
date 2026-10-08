@@ -35,8 +35,15 @@ jobs:
           change-request: '{"attributes":{"software_model":{"name":"${{inputs.release_version}}"}}}'
           deployment-gate: '{"environment":"UAT","jobName":"uat-deploy"}'
 
-  uat-deploy:
+  package-registration-test:
+    name: SN Register Package
     needs: package-registration
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo test
+
+  uat-deploy:
+    needs: package-registration-test
     environment: UAT
     runs-on: ubuntu-latest
     steps:
