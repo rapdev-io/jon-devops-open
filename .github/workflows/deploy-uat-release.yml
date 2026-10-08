@@ -34,6 +34,7 @@ jobs:
           context-github: ${{ toJSON(github) }}
           change-request: '{"attributes":{"software_model":{"name":"${{inputs.release_version}}"}}}'
           deployment-gate: '{"environment":"UAT","jobName":"uat-deploy"}'
+      - run sleep 30
 
   package-registration-test:
     name: package-registration
