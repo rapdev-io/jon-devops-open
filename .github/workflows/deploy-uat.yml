@@ -32,6 +32,12 @@ jobs:
           change-request: '{}'
           deployment-gate: '{"environment":"UAT","jobName":"uat-deploy"}'
 
+  package-registration-test:
+    name: SN Register Package
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo test
+
   uat-deploy:
     needs: package-registration
     environment: UAT
